@@ -25,7 +25,7 @@ public class UserController {
     }
 
     @GetMapping("/signup")
-    public String showSignUpForm(User user) {
+    public String showSignUpForm(User user) { //The user instance here is being used to called as object in thymeleaf page using th:object="${user}". It is somehow required for now.
         return "add-user";
     }
 
@@ -36,7 +36,7 @@ public class UserController {
         }
 
         userRepository.save(user);
-        return "redirect:/index";
+        return "redirect:/index"; //use redirect: when you want to route to a url other than a view.
     }
 
     @GetMapping("/index")
